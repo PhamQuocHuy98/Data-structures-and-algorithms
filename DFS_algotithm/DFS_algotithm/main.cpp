@@ -44,8 +44,8 @@ void DFS(point begin,int make[row][col])
 		{
 			if (!visited[x][y] && make[x][y]!=0)
 			{
-				visited[x][y] = true; // đánh dấu đã duyệt
-				path[x][y] = begin; // lưu đỉnh cha
+				visited[x][y] = true; 
+				path[x][y] = begin; 
 				DFS(point{ x, y },make);
 			}
 		}
