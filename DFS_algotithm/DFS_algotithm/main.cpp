@@ -33,7 +33,7 @@ int dy[] = { 0, 0, 1, -1 };
 #define col 10
 bool visited[MAX][MAX];
 point path[MAX][MAX];
-void DFS(point begin,int make[row][col])
+void DFS(point begin,int matrix[row][col])
 {
 	visited[begin.x][begin.y] = true;
 	for (int i = 0; i < 4; i++)
@@ -46,7 +46,7 @@ void DFS(point begin,int make[row][col])
 			{
 				visited[x][y] = true; 
 				path[x][y] = begin; 
-				DFS(point{ x, y },make);
+				DFS(point{ x, y },matrix);
 			}
 		}
 	}
@@ -72,7 +72,7 @@ void printPath(point start ,point end)
 }
 auto main()->int
 {
-	int make[row][col] = 
+	int matrix[row][col] = 
 	{ 
 		{ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
 		{ 1, 0, 1, 0, 1, 1, 1, 0, 1, 1 },
@@ -88,7 +88,7 @@ auto main()->int
 	memset(path, -1, sizeof(path));
 	const point begin = point{ 0, 0 };
 	const point end = point{ 8, 9 };
-	DFS(begin, make);
+	DFS(begin, matrix);
 	cout << "Path by DFS " << endl;
 	printPath(begin, end);
 	cout << endl;
